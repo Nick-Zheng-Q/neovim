@@ -9,14 +9,14 @@ return {
     -- second key is the lefthand side of the map
 
     -- navigate buffer tabs with `H` and `L`
-    -- L = {
-    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    --   desc = "Next buffer",
-    -- },
-    -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
+    L = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    H = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -30,6 +30,11 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
+    ["?"] = { "<cmd>only<cr>", desc = "Remove split" },
+    ["T"] = { "H", desc = "Move to the top of the screen"},
+    ["Y"] = { "L", desc = "Move to the bottom of the screen"},
+    [";"] = { "$", desc = "Move to the end of the line"},
+    [","] = { "^", desc = "Move to the front of the line"}
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
